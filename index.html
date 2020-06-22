@@ -7,6 +7,7 @@
     <title>Weather Dashboard</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 
 <body>
@@ -17,8 +18,15 @@
         <div class="row">
             <div class="col-4">
                 <form>
-                    <div class="form-row card-header pt-5">
-                        <input type="text" class="form-control" placeholder="City">
+                    <div class="card-header pt-5"> Search for a City:
+                        <div class="input-group mt-1">
+                            <input type="text" class="form-control" placeholder="Search for...">
+                            <span class="input-group-btn">
+                              <button class="btn btn-primary" type="submit">
+                                  <i class="fa fa-search"></i>
+                              </button>
+                            </span>
+                          </div>
                     </div>
                 </form>
             </div>
