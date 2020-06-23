@@ -3,7 +3,7 @@ $("button").on("click", function (event) {
     event.preventDefault();
     var searchCity = $(this).attr("form-control");
 
-    var queryURL = "api.openweathermap.org/data/2.5/forecast?q=" +
+    var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" +
         searchCity + "&appid=61a632379c3e9a3d1eecd3b47dea0b6b";
     
         var iconURL = "http://openweathermap.org/img/wn/" + response.list.weather.icon + "@2x.png";
