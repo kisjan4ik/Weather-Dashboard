@@ -24,10 +24,9 @@ $(document).ready(function () {
             .then(function (response) {
                 console.log(response);
 
-                // "http://openweathermap.org/img/w/" + iconcode + ".png";
 
                 $(".city").html("<h1>" + response.name + " (" + currentDate + ") </h1> <img src='http://openweathermap.org/img/w/" + response.weather[0].icon + ".png'>");
-                $(".temp").text("Temperature: " + response.main.temp + " F");
+                $(".temp").text("Temperature: " + response.main.temp + " F°");
                 $(".humidity").text("Humidity: " + response.main.humidity + " %");
                 $(".wind").text("Wind Speed: " + response.wind.speed + " MPH");
 
@@ -51,7 +50,7 @@ $(document).ready(function () {
             }).then(function (uv) {
                     console.log(uv);
 
-                    $(".uvindex").text("UV index: " + uv.value);
+                    $(".uvindex").text("UV index: "+ uv.value);
 
                 })
         }
@@ -76,7 +75,7 @@ $(document).ready(function () {
                     boxes += "<div class='forecastbox'>";
                     boxes += "<p>" + moment(forecast.list[i].dt_txt).format("MM/DD/YYYY") + "</p>";
                     boxes += "<p> <img src='http://openweathermap.org/img/w/" + forecast.list[i].weather[0].icon + ".png'></p>"; 
-                    boxes += "<p> Temp: " + forecast.list[i].main.temp + " F" + "</p>";
+                    boxes += "<p> Temp: " + forecast.list[i].main.temp + " F°" + "</p>";
                     boxes += "<p> Humidity: " + forecast.list[i].main.humidity + " %" + "</p>";
                     boxes += "</div>";
 
