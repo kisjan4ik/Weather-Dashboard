@@ -6,6 +6,12 @@ $(document).ready(function () {
         event.preventDefault();
         var city = $("#city").val();
 
+        let search = "";
+        for (i = 0; i < 6; i++) {
+            $(".cities").html(search);
+            search += "<li>" + city + "</li>";
+        }
+
         var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" +
             city + "&units=imperial" + "&appid=61a632379c3e9a3d1eecd3b47dea0b6b";
 
@@ -29,10 +35,10 @@ $(document).ready(function () {
                 var lon = response.coord.lon;
                 var lat = response.coord.lat;
 
-                    UVindex(lon,lat);
+                UVindex(lon, lat);
             })
 
-        function UVindex(lon,lat) {
+        function UVindex(lon, lat) {
             var uvURL = "http://api.openweathermap.org/data/2.5/uvi?appid=61a632379c3e9a3d1eecd3b47dea0b6b&lat=" + lat + "&lon=" + lon;
             $.ajax({
                 url: uvURL,
@@ -68,8 +74,8 @@ $(document).ready(function () {
                     boxes += "<div class='forecastbox'>";
                     boxes += "<p>" + forecast.list[i].dt_txt + "</p>";
                     boxes += "<p>" + forecast.list[i].weather[0].icon + "</p>";
-                    boxes += "<p>" + forecast.list[i].main.temp + " F"+"</p>";
-                    boxes += "<p>" + forecast.list[i].main.humidity + " %"+"</p>";
+                    boxes += "<p>" + forecast.list[i].main.temp + " F" + "</p>";
+                    boxes += "<p>" + forecast.list[i].main.humidity + " %" + "</p>";
                     boxes += "</div>";
 
                 }
