@@ -1,6 +1,21 @@
 .forecastbox {
     background: blue;
     color: white;
-    display: inline-block;
     width: 18%;
+    margin-right: 20px;
 }
+
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: row;
+    -ms-flex-direction: row;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+

@@ -37,17 +37,18 @@ $(document).ready(function () {
             console.log("Forecast data = " + JSON.stringify(forecast));
             var boxes = "";
 
-            for (let i = 0; i < 5; i++) {
+            for (let i = 0; i <= 40; i+=8) {
+                $("#forecast").html(boxes);
                 boxes += "<div class='forecastbox'>";
                 boxes += "<p>"+ forecast.list[i].dt_txt + "</p>";
-                boxes += "<p>"+forecast.list[i].weather[0].icon+ "</p>";
-                boxes += "<p>"+forecast.list[i].main.temp+ "</p>";
-                boxes += "<p>"+forecast.list[i].main.humidity+ "</p>";
+                boxes += "<p>"+ forecast.list[i].weather[0].icon + "</p>";
+                boxes += "<p>"+ forecast.list[i].main.temp + "</p>";
+                boxes += "<p>"+ forecast.list[i].main.humidity + "</p>";
                 boxes += "</div>";
                 
             }
 
-            $("#forecast").html(boxes);
+            
             
         })
 
