@@ -24,9 +24,9 @@ $(document).ready(function () {
             .then(function (response) {
                 console.log(response);
 
+                // "http://openweathermap.org/img/w/" + iconcode + ".png";
 
-
-                $(".city").html("<h1>" + response.name + " (" + currentDate + ") " + response.weather[0].icon + "</h1>");
+                $(".city").html("<h1>" + response.name + " (" + currentDate + ") </h1> <img src='http://openweathermap.org/img/w/" + response.weather[0].icon + ".png'>");
                 $(".temp").text("Temperature: " + response.main.temp + " F");
                 $(".humidity").text("Humidity: " + response.main.humidity + " %");
                 $(".wind").text("Wind Speed: " + response.wind.speed + " MPH");
@@ -34,22 +34,24 @@ $(document).ready(function () {
 
                 var lon = response.coord.lon;
                 var lat = response.coord.lat;
+                
+                
 
                 UVindex(lon, lat);
             })
 
         function UVindex(lon, lat) {
+            
             var uvURL = "http://api.openweathermap.org/data/2.5/uvi?appid=61a632379c3e9a3d1eecd3b47dea0b6b&lat=" + lat + "&lon=" + lon;
+            console.log(uvURL);
             $.ajax({
                 url: uvURL,
-                method: "GET",
-                dataType: "jsonp"
-            })
-
-                .then(function (uv) {
+                method: "GET"
+                
+            }).then(function (uv) {
                     console.log(uv);
 
-                    $(".uvindex").text("UV index: " + response.coord);
+                    $(".uvindex").text("UV index: " + uv.value);
 
                 })
         }
@@ -72,10 +74,10 @@ $(document).ready(function () {
                 for (let i = 0; i <= 40; i += 8) {
                     $("#forecast").html(boxes);
                     boxes += "<div class='forecastbox'>";
-                    boxes += "<p>" + forecast.list[i].dt_txt + "</p>";
-                    boxes += "<p>" + forecast.list[i].weather[0].icon + "</p>";
-                    boxes += "<p>" + forecast.list[i].main.temp + " F" + "</p>";
-                    boxes += "<p>" + forecast.list[i].main.humidity + " %" + "</p>";
+                    boxes += "<p>" + moment(forecast.list[i].dt_txt).format("MM/DD/YYYY") + "</p>";
+                    boxes += "<p> <img src='http://openweathermap.org/img/w/" + forecast.list[i].weather[0].icon + ".png'></p>"; 
+                    boxes += "<p> Temp: " + forecast.list[i].main.temp + " F" + "</p>";
+                    boxes += "<p> Humidity: " + forecast.list[i].main.humidity + " %" + "</p>";
                     boxes += "</div>";
 
                 }

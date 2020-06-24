@@ -1,9 +1,12 @@
 .forecastbox {
+    margin-top: 15px;
+    margin-bottom: 10px;
     background: rgb(64, 118, 236);
     color: white;
     width: 18%;
     margin-right: 13px;
     margin-left: 13px;
+    font-size: small;
 }
 
 .card {
@@ -20,3 +23,10 @@
     border-radius: .25rem;
 }
 
+.container{
+    margin-bottom: 50px;
+}
+
+#footer{
+    margin-top: 100px;
+}
