@@ -25,7 +25,7 @@ $(document).ready(function () {
                 console.log(response);
 
 
-                $(".city").html("<h1>" + response.name + " (" + currentDate + ") </h1> <img src='http://openweathermap.org/img/w/" + response.weather[0].icon + ".png'>");
+                $(".city").html("<h1>" + response.name + " (" + currentDate + ") </h1> <img id=first src='http://openweathermap.org/img/w/" + response.weather[0].icon + ".png'>");
                 $(".temp").text("Temperature: " + response.main.temp + " F°");
                 $(".humidity").text("Humidity: " + response.main.humidity + " %");
                 $(".wind").text("Wind Speed: " + response.wind.speed + " MPH");
@@ -50,7 +50,11 @@ $(document).ready(function () {
             }).then(function (uv) {
                     console.log(uv);
 
-                    $(".uvindex").text("UV index: "+ uv.value);
+                    $(".uvindex").text("UV index: " + uv.value);
+                    let uvicon = uv.value;
+                    console.log(uvicon);
+                    
+                    uvicon.addClass("uvred");
 
                 })
         }

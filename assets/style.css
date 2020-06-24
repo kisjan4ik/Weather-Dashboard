@@ -4,8 +4,12 @@
     background: rgb(64, 118, 236);
     color: white;
     width: 18%;
+    height:170px;
     margin-right: 13px;
     margin-left: 13px;
+    padding-left: 10px;
+    padding-top: 7px;
+    padding-bottom: 10px;
     font-size: small;
 }
 
@@ -27,6 +31,16 @@
     margin-bottom: 50px;
 }
 
+.uvred{
+background: crimson;
+color: white;
+}
+
 #footer{
     margin-top: 100px;
+}
+
+#first {
+    height: 85px;
+    width: 85px;
 }
