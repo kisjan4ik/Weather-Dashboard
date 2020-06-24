@@ -20,7 +20,9 @@ $("button").on("click", function (event) {
             .then(function (response) {
 
                 console.log(response);
-                UVindex(lat, lon);
+                // UVindex(lat, lon);
+// set location from response to lat and lon
+                UVindex(response.location of lat, = lon);
             })
     }
 

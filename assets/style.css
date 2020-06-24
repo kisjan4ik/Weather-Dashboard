@@ -1,0 +1,6 @@
+.forecastbox {
+    background: blue;
+    color: white;
+    display: inline-block;
+    width: 18%;
+}
