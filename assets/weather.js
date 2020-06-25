@@ -7,7 +7,7 @@ $(document).ready(function () {
         console.log("hello!!!");
 
         //if ($(this).attr("data-city") != "undefined") {
-          //  var city = $(this).attr("data-city")
+        //  var city = $(this).attr("data-city")
         //} else { var city = $("#city").val() }
 
         var city = $(this).attr("data-city") || $("#city").val() || "Austin"
@@ -28,17 +28,13 @@ $(document).ready(function () {
             .then(function (response) {
                 console.log(response);
 
-
                 $(".city").html("<h1>" + response.name + " (" + currentDate + ") </h1> <img id=first src='http://openweathermap.org/img/w/" + response.weather[0].icon + ".png'>");
                 $(".temp").text("Temperature: " + response.main.temp + " F°");
                 $(".humidity").text("Humidity: " + response.main.humidity + " %");
                 $(".wind").text("Wind Speed: " + response.wind.speed + " MPH");
 
-
                 var lon = response.coord.lon;
                 var lat = response.coord.lat;
-
-
 
                 UVindex(lon, lat);
             })
@@ -62,8 +58,6 @@ $(document).ready(function () {
 
             })
         }
-
-
 
         var iconURL = "http://api.openweathermap.org/data/2.5/forecast?q=" +
             city + "&units=imperial" + "&appid=61a632379c3e9a3d1eecd3b47dea0b6b";
@@ -89,8 +83,6 @@ $(document).ready(function () {
 
                 }
 
-
-
             })
 
     })
@@ -98,10 +90,9 @@ $(document).ready(function () {
     saveSearch();
 });
 
-
 function saveSearch() {
     $("ul.cities").empty();
-    for (let i = 0; i < localStorage.length; i++) {
+    for (let i = 0; i < 8; i++) {
         var list = localStorage.getItem(localStorage.key(i));
         var getList = $("<li>").addClass("btn").attr("data-city", list).attr("id", "button").text(list);
         $("ul.cities").append(getList);
@@ -109,15 +100,3 @@ function saveSearch() {
     }
 }
 
-
-
-
-
-
-// function saveSearch()
-// let search = "";
-//         for (i = 0; i < 8; i++) {
-//             $(".cities").html(search);
-//             search += "<li>" + city + "</li>";
-
-//         }

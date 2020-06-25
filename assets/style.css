@@ -1,3 +1,7 @@
+ul{
+    text-align: left;
+    padding-inline-start: 0px;
+}
 .forecastbox {
     margin-top: 15px;
     margin-bottom: 10px;
@@ -34,6 +38,10 @@
 .uvred{
 background: crimson;
 color: white;
+}
+
+#citieslist{
+display: grid;
 }
 
 #footer{
