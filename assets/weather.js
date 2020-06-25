@@ -4,13 +4,12 @@ $(document).ready(function () {
 
     $("#button").click(function (event) {
         event.preventDefault();
+
         var city = $("#city").val();
 
-        let search = "";
-        for (i = 0; i < 6; i++) {
-            $(".cities").html(search);
-            search += "<li>" + city + "</li>";
-        }
+        localStorage.setItem(city, city);
+        
+        
 
         var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" +
             city + "&units=imperial" + "&appid=61a632379c3e9a3d1eecd3b47dea0b6b";
@@ -33,30 +32,30 @@ $(document).ready(function () {
 
                 var lon = response.coord.lon;
                 var lat = response.coord.lat;
-                
-                
+
+
 
                 UVindex(lon, lat);
             })
 
         function UVindex(lon, lat) {
-            
+
             var uvURL = "http://api.openweathermap.org/data/2.5/uvi?appid=61a632379c3e9a3d1eecd3b47dea0b6b&lat=" + lat + "&lon=" + lon;
             console.log(uvURL);
             $.ajax({
                 url: uvURL,
                 method: "GET"
-                
+
             }).then(function (uv) {
-                    console.log(uv);
+                console.log(uv);
 
-                    $(".uvindex").text("UV index: " + uv.value);
-                    let uvicon = uv.value;
-                    console.log(uvicon);
-                    
-                    uvicon.addClass("uvred");
+                $(".uvindex").text("UV index: " + uv.value);
+                let uvicon = uv.value;
+                console.log(uvicon);
 
-                })
+                uvicon.addClass("uvred");
+
+            })
         }
 
 
@@ -78,7 +77,7 @@ $(document).ready(function () {
                     $("#forecast").html(boxes);
                     boxes += "<div class='forecastbox'>";
                     boxes += "<p>" + moment(forecast.list[i].dt_txt).format("MM/DD/YYYY") + "</p>";
-                    boxes += "<p> <img src='http://openweathermap.org/img/w/" + forecast.list[i].weather[0].icon + ".png'></p>"; 
+                    boxes += "<p> <img src='http://openweathermap.org/img/w/" + forecast.list[i].weather[0].icon + ".png'></p>";
                     boxes += "<p> Temp: " + forecast.list[i].main.temp + " F°" + "</p>";
                     boxes += "<p> Humidity: " + forecast.list[i].main.humidity + " %" + "</p>";
                     boxes += "</div>";
@@ -90,23 +89,29 @@ $(document).ready(function () {
             })
 
     })
+
+    saveSearch();
 });
 
-// UVindex(lat, lon);
 
-// function UVindex(lat, lon) {
-//     var queryURL = "http://api.openweathermap.org/data/2.5/uvi?appid=61a632379c3e9a3d1eecd3b47dea0b6b&lat=" + lat + "&lon=" + lon;
+function saveSearch(){
+    $("<ul>.cities</ul>").empty();
+    for(let i=0; i<localStorage.length; i++){
+        var list = localStorage.getItem(localStorage.key(i));
+        var getList = $("<li>").addClass("btn").attr("data-city",list).text(list);
+        $(".cities").append(getList);
 
-//     $.ajax({
-//         url: queryURL,
-//         method: "GET",
-//         dataType: "jsonp"
-//     })
+ }
+}
 
-//         .then(function (response) {
-//             console.log(response);
 
-//             $(".uvindex").text("UV index: " + response.value);    
 
-//         })
-// }
+
+
+// function saveSearch()
+// let search = "";
+//         for (i = 0; i < 8; i++) {
+//             $(".cities").html(search);
+//             search += "<li>" + city + "</li>";
+
+//         }
