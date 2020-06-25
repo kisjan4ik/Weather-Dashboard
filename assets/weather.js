@@ -4,8 +4,7 @@ $(document).ready(function () {
 
     $(document).on("click", ".btn", function (event) {
         event.preventDefault();
-        console.log("hello!!!");
-
+        
         //if ($(this).attr("data-city") != "undefined") {
         //  var city = $(this).attr("data-city")
         //} else { var city = $("#city").val() }
