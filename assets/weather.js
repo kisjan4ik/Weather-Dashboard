@@ -2,14 +2,19 @@ var currentDate = moment().format("MM/DD/YYYY");
 
 $(document).ready(function () {
 
-    $("#button").click(function (event) {
+    $(document).on("click", ".btn", function (event) {
         event.preventDefault();
+        console.log("hello!!!");
 
-        var city = $("#city").val();
+        //if ($(this).attr("data-city") != "undefined") {
+          //  var city = $(this).attr("data-city")
+        //} else { var city = $("#city").val() }
+
+        var city = $(this).attr("data-city") || $("#city").val() || "Austin"
 
         localStorage.setItem(city, city);
-        
-        
+
+        saveSearch();
 
         var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" +
             city + "&units=imperial" + "&appid=61a632379c3e9a3d1eecd3b47dea0b6b";
@@ -94,15 +99,16 @@ $(document).ready(function () {
 });
 
 
-function saveSearch(){
-    $("<ul>.cities</ul>").empty();
-    for(let i=0; i<localStorage.length; i++){
+function saveSearch() {
+    $("ul.cities").empty();
+    for (let i = 0; i < localStorage.length; i++) {
         var list = localStorage.getItem(localStorage.key(i));
-        var getList = $("<li>").addClass("btn").attr("data-city",list).text(list);
-        $(".cities").append(getList);
+        var getList = $("<li>").addClass("btn").attr("data-city", list).attr("id", "button").text(list);
+        $("ul.cities").append(getList);
 
- }
+    }
 }
+
 
 
 
