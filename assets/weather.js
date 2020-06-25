@@ -92,7 +92,7 @@ $(document).ready(function () {
 
 function saveSearch() {
     $("ul.cities").empty();
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i < localStorage.length; i++) {
         var list = localStorage.getItem(localStorage.key(i));
         var getList = $("<li>").addClass("btn").attr("data-city", list).attr("id", "button").text(list);
         $("ul.cities").append(getList);

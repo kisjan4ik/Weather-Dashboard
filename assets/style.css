@@ -2,6 +2,7 @@ ul{
     text-align: left;
     padding-inline-start: 0px;
 }
+
 .forecastbox {
     margin-top: 15px;
     margin-bottom: 10px;
@@ -36,12 +37,19 @@ ul{
 }
 
 .uvred{
-background: crimson;
-color: white;
+    background: crimson;
+    color: white;
+}
+
+.btn{
+    text-align: start;
+    font-size: 18px;
+    border-bottom: 1px solid hsl(0, 1%, 83%);
+
 }
 
 #citieslist{
-display: grid;
+    display: grid;
 }
 
 #footer{
