@@ -15,6 +15,8 @@ $(document).ready(function () {
 
         saveSearch();
 
+        $("input[type='text']").val("");
+
         var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" +
             city + "&units=imperial" + "&appid=61a632379c3e9a3d1eecd3b47dea0b6b";
 
