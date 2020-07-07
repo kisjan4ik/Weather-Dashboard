@@ -72,8 +72,8 @@ $(document).ready(function () {
                 for (let i = 0; i <= 40; i += 8) {
                     $("#forecast").html(boxes);
                     boxes += "<div class='forecastbox'>";
-                    boxes += "<p>" + moment(forecast.list[i].dt_txt).format("MM/DD/YYYY") + "</p>";
-                    boxes += "<p> <img src='https://openweathermap.org/img/w/" + forecast.list[i].weather[0].icon + ".png'></p>";
+                    boxes += "<p>" + moment(forecast.list[i].dt_txt).format("MM/DD/YY") + "</p>";
+                    boxes += "<img src='https://openweathermap.org/img/w/" + forecast.list[i].weather[0].icon + ".png'>";
                     boxes += "<p> Temp: " + forecast.list[i].main.temp + " F°" + "</p>";
                     boxes += "<p> Humidity: " + forecast.list[i].main.humidity + " %" + "</p>";
                     boxes += "</div>";
