@@ -36,11 +36,6 @@ ul{
     margin-bottom: 50px;
 }
 
-.uvred{
-    background: crimson;
-    color: white;
-}
-
 .btn{
     text-align: start;
     font-size: 18px;
@@ -59,4 +54,13 @@ ul{
 #first {
     height: 85px;
     width: 85px;
+}
+
+#red {
+    background-color: red;
+    color:white;
+    margin-left: 3px; 
+    padding: 3px;
+    border-radius: 15%;
+   
 }

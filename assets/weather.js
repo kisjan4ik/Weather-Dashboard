@@ -51,11 +51,7 @@ $(document).ready(function () {
             }).then(function (uv) {
                 console.log(uv);
 
-                $(".uvindex").text("UV index: " + uv.value);
-                let uvicon = uv.value;
-                console.log(uvicon);
-
-                uvicon.addClass("uvred");
+                $(".uvindex").html("<div> UV index: " + "<span id=red>" + uv.value + "</span></div>");
 
             })
         }
